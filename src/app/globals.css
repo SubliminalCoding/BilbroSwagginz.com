@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+@theme {
+  --color-lime: #4eca5c;
+  --color-lime-dark: #3da84a;
+  --color-gold: #d4a017;
+  --color-gold-dark: #b8860b;
+  --color-dark: #0b0e0b;
+  --color-dark-card: #111611;
+  --color-dark-border: #1e2a1e;
+  --color-muted: #8a9a8a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-dark);
+  color: #eaf0ea;
+}
+
+/* Hero gradient glow */
+.hero-glow {
+  position: absolute;
+  width: 700px;
+  height: 500px;
+  background: radial-gradient(ellipse at center, rgba(78, 202, 92, 0.07) 0%, rgba(212, 160, 23, 0.03) 40%, transparent 70%);
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Animated gradient text */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #4eca5c, #d4a017, #4eca5c);
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Product card hover glow */
+.product-card {
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(78, 202, 92, 0.06);
+}
+
+/* Subtle noise texture overlay */
+.noise-bg::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Hero avatar */
+.hero-avatar {
+  border: 3px solid rgba(78, 202, 92, 0.3);
+  box-shadow: 0 0 40px rgba(78, 202, 92, 0.1), 0 0 80px rgba(212, 160, 23, 0.05);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero-avatar:hover {
+  border-color: rgba(212, 160, 23, 0.5);
+  box-shadow: 0 0 40px rgba(212, 160, 23, 0.15), 0 0 80px rgba(78, 202, 92, 0.08);
+}
+
+/* Stat counter animation */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.stat-item {
+  animation: count-up 0.5s ease forwards;
+}
+
+/* Mobile menu */
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.mobile-menu {
+  animation: slide-down 0.2s ease forwards;
+}
+
+/* Scroll reveal animations */
+.reveal-section {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal-section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
