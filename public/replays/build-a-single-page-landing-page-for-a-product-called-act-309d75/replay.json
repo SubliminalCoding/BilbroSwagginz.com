@@ -1,0 +1,129 @@
+{
+  "version": 1,
+  "slug": "build-a-single-page-landing-page-for-a-product-called-act-309d75",
+  "sessionId": "1c892487-a01a-4c75-8b5a-df80fe309d75",
+  "exportedAt": "2026-03-23T17:42:58.956Z",
+  "title": "*Build a single-page landing page for a product called **ActuallyShip**",
+  "description": "This coding run covered 5 different coding concepts. The agent read code before writing. That's the professional workflow. Understanding before acting leads to better results.",
+  "projectName": "ActuallyShip",
+  "projectSlug": "actuallyship",
+  "date": "2026-03-05",
+  "duration": "1h 21m",
+  "durationMs": 4876279,
+  "tags": [
+    "terminal",
+    "editing-code",
+    "routing",
+    "planning",
+    "reading-code"
+  ],
+  "status": "complete",
+  "source": {
+    "tool": "claude-code",
+    "model": "claude-opus-4-6",
+    "amcVersion": "0.1.0"
+  },
+  "stats": {
+    "eventCount": 84,
+    "commitCount": 0,
+    "filesEdited": 0,
+    "linesAdded": 0,
+    "linesRemoved": 0,
+    "toolCalls": 26,
+    "estimatedCostUSD": 0.01842
+  },
+  "conceptsCovered": [
+    "terminal",
+    "editing-code",
+    "routing",
+    "planning",
+    "reading-code"
+  ],
+  "chapters": [
+    {
+      "id": "ch-1",
+      "title": "Understanding the Task",
+      "icon": "🎯",
+      "description": "The agent receives instructions and plans its approach.",
+      "lessonCount": 1,
+      "startIndex": 0
+    },
+    {
+      "id": "ch-2",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 3
+    },
+    {
+      "id": "ch-3",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 6
+    },
+    {
+      "id": "ch-4",
+      "title": "Inspecting the Code",
+      "icon": "🔍",
+      "description": "Reading existing code to understand how things work.",
+      "lessonCount": 1,
+      "startIndex": 10
+    },
+    {
+      "id": "ch-5",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 13
+    },
+    {
+      "id": "ch-6",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 3,
+      "startIndex": 17
+    },
+    {
+      "id": "ch-7",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 6,
+      "startIndex": 34
+    },
+    {
+      "id": "ch-8",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 11,
+      "startIndex": 55
+    }
+  ],
+  "keyMoments": [
+    {
+      "label": "First Code Change",
+      "icon": "✏️",
+      "eventIndex": 6,
+      "timestamp": "2026-03-05T07:41:22.274Z",
+      "score": 70
+    },
+    {
+      "label": "Task Received",
+      "icon": "📋",
+      "eventIndex": 0,
+      "timestamp": "2026-03-05T07:40:26.799Z",
+      "score": 60
+    }
+  ],
+  "files": {
+    "events": "events.json",
+    "transcript": "transcript.json",
+    "lessons": "lessons.json"
+  }
+}

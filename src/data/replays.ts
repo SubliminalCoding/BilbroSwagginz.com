@@ -266,6 +266,7 @@ import replay_amc_session from "../../public/replays/we-have-to-download-this-re
 import replay_actuallyship from "../../public/replays/implement-the-following-plan-actuallyship-rebrand-plan-49f283/replay.json";
 import replay_socialforge from "../../public/replays/you-are-an-expert-full-stack-developer-specializing-in-rapid-c09a5b/replay.json";
 import replay_mecoach_ide from "../../public/replays/implement-the-following-plan-menoach-ide-mvp-implement-8bcf52/replay.json";
+import replay_build_a_single_page_landing_page_for_a_p from "../../public/replays/build-a-single-page-landing-page-for-a-product-called-act-309d75/replay.json";
 
 export const replays: ReplayManifest[] = [
   // All real AgentReplay exports — every session has 4 artifact files on disk
@@ -276,6 +277,7 @@ export const replays: ReplayManifest[] = [
   replay_socialforge as ReplayManifest,
   replay_mecoach_ide as ReplayManifest,
   replay_amc_session as ReplayManifest,
+  replay_build_a_single_page_landing_page_for_a_p as ReplayManifest,
 
   // Mock manifests below — kept for sessions not yet exported.
   // These show "not available" in lazy panels.
