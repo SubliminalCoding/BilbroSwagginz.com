@@ -209,11 +209,11 @@ function MobileMenu({
           Products
         </a>
         <a
-          href="#log"
+          href="/games"
           onClick={onClose}
           className="text-muted hover:text-white transition-colors"
         >
-          Build Log
+          Games
         </a>
         <a
           href="/replays"
@@ -223,6 +223,13 @@ function MobileMenu({
           Replays
         </a>
         <a
+          href="#log"
+          onClick={onClose}
+          className="text-muted hover:text-white transition-colors"
+        >
+          Build Log
+        </a>
+        <a
           href="https://www.youtube.com/channel/UCU0uyjCjL9gcwKhGc_9kW8A"
           target="_blank"
           rel="noopener noreferrer"
@@ -230,13 +237,6 @@ function MobileMenu({
           className="text-muted hover:text-white transition-colors"
         >
           YouTube
-        </a>
-        <a
-          href="#about"
-          onClick={onClose}
-          className="text-muted hover:text-white transition-colors"
-        >
-          About
         </a>
         <a
           href="#products"
@@ -339,11 +339,14 @@ export default function Home() {
             >
               Products
             </a>
-            <a href="#log" className="hover:text-white transition-colors">
-              Build Log
+            <a href="/games" className="hover:text-white transition-colors">
+              Games
             </a>
             <a href="/replays" className="hover:text-white transition-colors">
               Replays
+            </a>
+            <a href="#log" className="hover:text-white transition-colors">
+              Build Log
             </a>
             <a
               href="https://www.youtube.com/channel/UCU0uyjCjL9gcwKhGc_9kW8A"
@@ -352,9 +355,6 @@ export default function Home() {
               className="hover:text-white transition-colors"
             >
               YouTube
-            </a>
-            <a href="#about" className="hover:text-white transition-colors">
-              About
             </a>
             <CmdKHint />
             <a
