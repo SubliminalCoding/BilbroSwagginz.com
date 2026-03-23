@@ -166,8 +166,8 @@ export function ReplayTranscriptPanel({
             )}
           </div>
 
-          {/* Diff loading toggle */}
-          {eventsPath && !diffsLoaded && (
+          {/* Diff loading toggle — only show after transcript is loaded */}
+          {eventsPath && transcript && !diffsLoaded && (
             <button
               onClick={loadDiffs}
               disabled={diffsLoading}
