@@ -31,6 +31,7 @@ import type { Metadata } from "next";
 import { ReplayLessonsPanel } from "./lessons-panel";
 import { ReplayTranscriptPanel } from "./transcript-panel";
 import { ReplayPlayerPlaceholder } from "./player-placeholder";
+import { ReplayPlayer } from "./replay-player";
 
 export function generateStaticParams() {
   return replays.map((r) => ({ slug: r.slug }));
@@ -163,18 +164,13 @@ export default async function ReplayPage({
       ) : (
         <section className="px-6 pb-16">
           <div className="mx-auto max-w-4xl">
-            {/*
-              Replay player placeholder.
-              This is a client component that will eventually:
-              1. Lazy-load events.json via replayEventsPath(slug)
-              2. Render the interactive replay player
-              For now it shows a static placeholder.
-            */}
-            <ReplayPlayerPlaceholder
+            <ReplayPlayer
               slug={replay.slug}
               eventsPath={replayEventsPath(replay.slug)}
               durationMs={replay.durationMs}
               eventCount={replay.stats.eventCount}
+              chapters={replay.chapters}
+              keyMoments={replay.keyMoments}
             />
           </div>
         </section>
