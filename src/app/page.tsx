@@ -36,7 +36,7 @@ import { CommandPalette, CmdKHint } from "@/components/command-palette";
 
 const stats = [
   { value: String(products.length), label: "Products" },
-  { value: "2", label: "Flagship bets" },
+  { value: String(products.filter((p) => p.tier === "featured").length), label: "Flagship bets" },
   { value: "100%", label: "Built with AI" },
 ];
 
@@ -66,6 +66,13 @@ const now = [
 ];
 
 const buildLog = [
+  {
+    date: "Mar 23, 2026",
+    title: "AgentReplay + Vibe Coding Stack + full site polish",
+    description:
+      "Shipped the AgentReplay archive with real AMC exports, added the Vibe Coding Stack ecosystem section, rebranded products (AgentReplay, VoiceForge), added trial CTA for ActuallyShip, and ran de-slopify + bug hunter passes.",
+    tag: "Site",
+  },
   {
     date: "Mar 23, 2026",
     title: "Product studio restructure",
@@ -246,11 +253,31 @@ function MobileMenu({
 function EmailCapture() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [sending, setSending] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    if (!email) return;
-    setSubmitted(true);
+    if (!email || sending) return;
+    setSending(true);
+    setError("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || "Something went wrong.");
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setError("Could not connect. Try again.");
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -263,25 +290,32 @@ function EmailCapture() {
           </p>
         </div>
       ) : (
-        <form onSubmit={handleSubmit} className="flex gap-3">
-          <div className="relative flex-1">
-            <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="your@email.com"
-              required
-              className="w-full rounded-lg border border-dark-border bg-dark-card py-3 pl-10 pr-4 text-sm text-white placeholder:text-muted/60 focus:border-lime/40 focus:outline-none focus:ring-1 focus:ring-lime/20 transition-colors"
-            />
-          </div>
-          <button
-            type="submit"
-            className="rounded-lg bg-lime px-5 py-3 text-sm font-semibold text-dark hover:bg-lime-dark transition-colors shrink-0"
-          >
-            Get updates
-          </button>
-        </form>
+        <>
+          <form onSubmit={handleSubmit} className="flex gap-3">
+            <div className="relative flex-1">
+              <Mail className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your@email.com"
+                required
+                disabled={sending}
+                className="w-full rounded-lg border border-dark-border bg-dark-card py-3 pl-10 pr-4 text-sm text-white placeholder:text-muted/60 focus:border-lime/40 focus:outline-none focus:ring-1 focus:ring-lime/20 transition-colors disabled:opacity-50"
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={sending}
+              className="rounded-lg bg-lime px-5 py-3 text-sm font-semibold text-dark hover:bg-lime-dark transition-colors shrink-0 disabled:opacity-50"
+            >
+              {sending ? "..." : "Get updates"}
+            </button>
+          </form>
+          {error && (
+            <p className="mt-2 text-xs text-red-400">{error}</p>
+          )}
+        </>
       )}
     </div>
   );
