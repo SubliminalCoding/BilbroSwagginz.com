@@ -13,6 +13,8 @@ import {
   Radio,
   User,
   Command,
+  Gamepad2,
+  Crosshair,
 } from "lucide-react";
 
 interface PaletteItem {
@@ -52,9 +54,15 @@ export function CommandPalette() {
       { id: "about", label: "About", section: "Navigate", icon: User, action: go("#about") },
       { id: "build-log", label: "Build Log", section: "Navigate", icon: FileText, action: go("#log") },
       { id: "live-builds", label: "Live Builds", section: "Navigate", icon: Radio, action: go("#live") },
-      { id: "actuallyship", label: "ActuallyShip", section: "Products", icon: ArrowRight, action: go("/products/actuallyship") },
-      { id: "socialforge", label: "SocialForge", section: "Products", icon: ArrowRight, action: go("/products/socialforge") },
-      { id: "mecoach", label: "MeCoach", section: "Products", icon: ArrowRight, action: go("/products/mecoach") },
+      { id: "games", label: "Games / Arcade", section: "Navigate", icon: Gamepad2, action: go("/games") },
+      { id: "actuallyship", label: "ActuallyShip", section: "Featured", icon: ArrowRight, action: go("/products/actuallyship") },
+      { id: "mecoach", label: "MeCoach", section: "Featured", icon: ArrowRight, action: go("/products/mecoach") },
+      { id: "agentmissioncontrol", label: "AgentMissionControl", section: "Tools", icon: ArrowRight, action: go("/products/agentmissioncontrol") },
+      { id: "socialforge", label: "SocialForge", section: "Tools", icon: ArrowRight, action: go("/products/socialforge") },
+      { id: "actuallyship-ide", label: "ActuallyShip IDE", section: "Tools", icon: ArrowRight, action: go("/products/actuallyship-ide") },
+      { id: "voice-transcription", label: "Voice Transcription App", section: "Tools", icon: ArrowRight, action: go("/products/voice-transcription") },
+      { id: "udderly-abduction", label: "Udderly Abduction: Barrage", section: "Games", icon: Crosshair, action: go("/games/udderly-abduction") },
+      { id: "game-dev-prompts", label: "Game Dev Prompts", section: "Games", icon: Gamepad2, action: go("/games/prompts") },
       { id: "youtube", label: "YouTube", section: "Social", icon: Youtube, action: () => { setOpen(false); window.open("https://www.youtube.com/channel/UCU0uyjCjL9gcwKhGc_9kW8A", "_blank"); } },
       { id: "github", label: "GitHub", section: "Social", icon: Github, action: () => { setOpen(false); window.open("https://github.com/SubliminalCoding", "_blank"); } },
       { id: "twitter", label: "Twitter / X", section: "Social", icon: Twitter, action: () => { setOpen(false); window.open("https://x.com/GetActuallyShip", "_blank"); } },

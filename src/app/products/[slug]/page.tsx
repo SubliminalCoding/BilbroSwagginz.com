@@ -27,16 +27,20 @@ export async function generateMetadata({
 }
 
 function StatusBadge({ status }: { status: string }) {
-  const isLive = status === "Live";
+  const colors: Record<string, string> = {
+    Live: "bg-lime/10 text-lime border-lime/20",
+    "Early Access": "bg-lime/10 text-lime border-lime/20",
+    "In Progress": "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
+    Experiment: "bg-white/5 text-muted border-dark-border",
+  };
+  const isActive = status === "Live" || status === "Early Access";
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${
-        isLive
-          ? "bg-lime/10 text-lime border border-lime/20"
-          : "bg-white/5 text-muted border border-dark-border"
+      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium border ${
+        colors[status] || "bg-white/5 text-muted border-dark-border"
       }`}
     >
-      {isLive && (
+      {isActive && (
         <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
       )}
       {status}

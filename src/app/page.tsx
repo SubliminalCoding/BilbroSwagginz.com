@@ -16,6 +16,9 @@ import {
   X,
   Mail,
   Calendar,
+  Gamepad2,
+  Star,
+  Wrench,
 } from "lucide-react";
 
 function DiscordIcon({ className }: { className?: string }) {
@@ -25,13 +28,12 @@ function DiscordIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-import Link from "next/link";
-import { products } from "@/data/products";
+import { featuredProducts, toolProducts, products } from "@/data/products";
 import { CommandPalette, CmdKHint } from "@/components/command-palette";
 
 const stats = [
   { value: String(products.length), label: "Products" },
-  { value: String(products.filter((p) => p.status === "Live").length), label: "Live now" },
+  { value: "2", label: "Flagship bets" },
   { value: "100%", label: "Built with AI" },
 ];
 
@@ -48,17 +50,33 @@ const buildingAround = [
   "Product clarity",
   "Automation",
   "Decision systems",
+  "Streaming & content",
   "Tools that help people actually ship",
 ];
 
 const now = [
   "Improving ActuallyShip",
+  "Building MeCoach coaching flows",
   "Refining AI coding workflows",
   "Testing automation systems with OpenClaw",
   "Shortening the path from idea to shipped product",
 ];
 
 const buildLog = [
+  {
+    date: "Mar 23, 2026",
+    title: "Product studio restructure",
+    description:
+      "Reorganized the site into Featured Products and Builder Tools. Clearer hierarchy, stronger positioning.",
+    tag: "Site",
+  },
+  {
+    date: "Mar 22, 2026",
+    title: "Arcade section + Udderly Abduction: Barrage",
+    description:
+      "Shipped the Games section with the first playable title. Full browser game with global leaderboard powered by Neon Postgres.",
+    tag: "Games",
+  },
   {
     date: "Mar 22, 2026",
     title: "BilbroSwagginz.com v2 launched",
@@ -141,16 +159,20 @@ function RevealSection({
 }
 
 function StatusBadge({ status }: { status: string }) {
-  const isLive = status === "Live";
+  const colors: Record<string, string> = {
+    Live: "bg-lime/10 text-lime border-lime/20",
+    "Early Access": "bg-lime/10 text-lime border-lime/20",
+    "In Progress": "bg-gold/10 text-gold border-gold/20",
+    Experiment: "bg-white/5 text-muted border-dark-border",
+  };
+  const isActive = status === "Live" || status === "Early Access";
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium ${
-        isLive
-          ? "bg-lime/10 text-lime border border-lime/20"
-          : "bg-white/5 text-muted border border-dark-border"
+      className={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium border ${
+        colors[status] || "bg-white/5 text-muted border-dark-border"
       }`}
     >
-      {isLive && (
+      {isActive && (
         <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
       )}
       {status}
@@ -175,6 +197,13 @@ function MobileMenu({
           className="text-muted hover:text-white transition-colors"
         >
           Products
+        </a>
+        <a
+          href="/games"
+          onClick={onClose}
+          className="text-muted hover:text-white transition-colors"
+        >
+          Games
         </a>
         <a
           href="#about"
@@ -271,6 +300,9 @@ export default function Home() {
             >
               Products
             </a>
+            <a href="/games" className="hover:text-white transition-colors">
+              Games
+            </a>
             <a href="#about" className="hover:text-white transition-colors">
               About
             </a>
@@ -314,12 +346,12 @@ export default function Home() {
             className="hero-avatar mx-auto mb-8 h-36 w-36 rounded-full object-cover sm:h-44 sm:w-44"
           />
           <h1 className="text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-            Building AI-powered products{" "}
-            <span className="gradient-text">in public.</span>
+            AI-powered products{" "}
+            <span className="gradient-text">built in public.</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-muted">
-            Apps, tools, and experiments around AI workflows, coding agents,
-            automation, and product execution.
+            A product studio around thinking, building, shipping, and automation.
+            Flagship products. Builder tools. Everything AI-first.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
@@ -352,7 +384,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* About */}
+      {/* About / What this site is */}
       <section id="about" className="px-6 py-24">
         <RevealSection>
           <div className="mx-auto max-w-3xl">
@@ -360,31 +392,41 @@ export default function Home() {
               What this site is
             </h2>
             <p className="mt-4 text-2xl font-semibold leading-relaxed">
-              BilbroSwagginz.com is my builder hub.
+              BilbroSwagginz.com is a product studio.
             </p>
             <p className="mt-4 text-lg text-muted leading-relaxed">
-              This is where I keep the products I&apos;m working on, the
-              experiments I&apos;m testing, and the ideas I&apos;m turning into
-              shipped software.
+              Everything here is built around a single loop: think clearly,
+              build fast, ship publicly, automate what you can. Some of these
+              products are flagship bets. Some are tools and systems that
+              support the workflow. Some are experiments that might become
+              something bigger.
             </p>
             <p className="mt-4 text-lg text-muted leading-relaxed">
-              Some projects are live. Some are in progress. Some are weird. All
-              of them are part of the process.
+              All of it is AI-first, builder-focused, and documented as it
+              happens.
             </p>
           </div>
         </RevealSection>
       </section>
 
-      {/* Products */}
+      {/* Featured Products */}
       <section id="products" className="px-6 py-24 bg-dark-card">
         <RevealSection>
           <div className="mx-auto max-w-5xl">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-lime">
-              What I&apos;m building
-            </h2>
-            <div className="mt-12 grid gap-8 md:grid-cols-3">
-              {products.map((product) => {
-                const isLive = product.status === "Live";
+            <div className="flex items-center gap-3">
+              <Star className="h-5 w-5 text-lime" />
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-lime">
+                Featured Products
+              </h2>
+            </div>
+            <p className="mt-4 text-2xl font-semibold">
+              The flagship bets.
+            </p>
+            <p className="mt-2 text-muted">
+              These are the products getting the most focus, investment, and iteration right now.
+            </p>
+            <div className="mt-12 grid gap-8 md:grid-cols-2">
+              {featuredProducts.map((product) => {
                 const hasExternalLink = !!product.href;
                 return (
                   <a
@@ -392,34 +434,131 @@ export default function Home() {
                     href={hasExternalLink ? product.href : `/products/${product.slug}`}
                     target={hasExternalLink ? "_blank" : undefined}
                     rel={hasExternalLink ? "noopener noreferrer" : undefined}
-                    className={`product-card group rounded-xl border p-6 block ${
-                      isLive
-                        ? "border-lime/20 bg-dark ring-1 ring-lime/5"
-                        : "border-dark-border bg-dark"
-                    } hover:border-lime/30`}
+                    className="featured-card group rounded-xl border border-lime/20 bg-dark p-8 block ring-1 ring-lime/5 hover:border-lime/40 hover:ring-lime/10 transition-all"
                   >
                     <div className="flex items-start justify-between">
-                      <h3 className="text-xl font-bold">{product.name}</h3>
+                      <h3 className="text-2xl font-bold group-hover:text-lime transition-colors">
+                        {product.name}
+                      </h3>
                       <StatusBadge status={product.status} />
                     </div>
-                    <p className="mt-2 text-sm font-medium text-lime/80">
+                    <p className="mt-3 text-base font-medium text-lime/80">
                       {product.tagline}
                     </p>
-                    <p className="mt-3 text-sm text-muted leading-relaxed">
+                    <p className="mt-4 text-sm text-muted leading-relaxed">
                       {product.description}
                     </p>
                     <p className="mt-4 text-xs text-muted">
                       {product.category}
                     </p>
-                    <span
-                      className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-lime group-hover:underline"
-                    >
+                    <span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-lime group-hover:underline">
                       {product.cta}{" "}
                       <ExternalLink className="h-3 w-3" />
                     </span>
                   </a>
                 );
               })}
+            </div>
+          </div>
+        </RevealSection>
+      </section>
+
+      {/* Builder & Creator Tools */}
+      <section id="tools" className="px-6 py-24">
+        <RevealSection>
+          <div className="mx-auto max-w-5xl">
+            <div className="flex items-center gap-3">
+              <Wrench className="h-5 w-5 text-muted" />
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-lime">
+                Builder &amp; Creator Tools
+              </h2>
+            </div>
+            <p className="mt-4 text-2xl font-semibold">
+              Systems, tools, and experiments.
+            </p>
+            <p className="mt-2 text-muted">
+              Supporting tools that power the workflow, plus early experiments worth tracking.
+            </p>
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {toolProducts.map((product) => {
+                const hasExternalLink = !!product.href;
+                return (
+                  <a
+                    key={product.name}
+                    href={hasExternalLink ? product.href : `/products/${product.slug}`}
+                    target={hasExternalLink ? "_blank" : undefined}
+                    rel={hasExternalLink ? "noopener noreferrer" : undefined}
+                    className="product-card group rounded-xl border border-dark-border bg-dark-card p-5 block hover:border-lime/20"
+                  >
+                    <div className="flex items-start justify-between gap-2">
+                      <h3 className="text-base font-bold group-hover:text-lime transition-colors">
+                        {product.name}
+                      </h3>
+                      <StatusBadge status={product.status} />
+                    </div>
+                    <p className="mt-2 text-xs font-medium text-lime/60">
+                      {product.tagline}
+                    </p>
+                    <p className="mt-3 text-xs text-muted leading-relaxed">
+                      {product.description}
+                    </p>
+                    <p className="mt-3 text-[11px] text-muted/60">
+                      {product.category}
+                    </p>
+                    <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-lime group-hover:underline">
+                      {product.cta}{" "}
+                      <ExternalLink className="h-3 w-3" />
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </RevealSection>
+      </section>
+
+      {/* Games Showcase */}
+      <section id="games" className="px-6 py-24 bg-dark-card">
+        <RevealSection>
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-lime">
+              The Arcade
+            </h2>
+            <p className="mt-4 text-2xl font-semibold">
+              Games built from scratch, playable in your browser.
+            </p>
+            <a
+              href="/games/udderly-abduction"
+              className="mt-8 group block rounded-xl border border-lime/20 bg-dark p-6 hover:border-lime/40 transition-all hover:shadow-lg hover:shadow-lime/5"
+            >
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-lime/10 bg-dark-card">
+                  <Gamepad2 className="h-7 w-7 text-lime" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-xl font-bold group-hover:text-lime transition-colors">
+                      Udderly Abduction: Barrage
+                    </h3>
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-lime/10 px-2.5 py-0.5 text-xs font-medium text-lime border border-lime/20">
+                      <span className="h-1.5 w-1.5 rounded-full bg-lime animate-pulse" />
+                      Playable
+                    </span>
+                  </div>
+                  <p className="mt-1 text-sm text-muted">
+                    Retro bullet-hell. Pilot a UFO, steal cows, dodge insane bullet patterns, and fight bosses. Global leaderboard included.
+                  </p>
+                </div>
+                <ArrowRight className="h-5 w-5 text-lime shrink-0 hidden sm:block" />
+              </div>
+            </a>
+            <div className="mt-6 text-center">
+              <a
+                href="/games"
+                className="text-sm text-lime hover:underline"
+              >
+                View all games
+              </a>
             </div>
           </div>
         </RevealSection>
@@ -560,27 +699,8 @@ export default function Home() {
         </RevealSection>
       </section>
 
-      {/* Why Follow */}
-      <section className="px-6 py-24">
-        <RevealSection>
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-sm font-semibold uppercase tracking-wider text-lime">
-              Why follow along
-            </h2>
-            <p className="mt-4 text-2xl font-semibold">
-              I ship AI-powered products and document the whole process.
-            </p>
-            <p className="mt-4 text-lg text-muted leading-relaxed">
-              This site tracks what&apos;s live, what&apos;s changing, and
-              what&apos;s coming next. If you want to see how AI tools turn
-              into finished software, this is where I track it.
-            </p>
-          </div>
-        </RevealSection>
-      </section>
-
       {/* Final CTA + Email Capture */}
-      <section className="px-6 py-24 bg-dark-card">
+      <section className="px-6 py-24">
         <RevealSection>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold">Stay in the loop</h2>
@@ -612,7 +732,7 @@ export default function Home() {
           <div>
             <p className="text-lg font-bold">BilbroSwagginz</p>
             <p className="mt-1 text-sm text-muted">
-              Building products, tools, and experiments in public.
+              A product studio for AI-powered tools, built in public.
             </p>
           </div>
           <div className="flex items-center gap-6">
@@ -657,6 +777,12 @@ export default function Home() {
               className="text-sm text-muted hover:text-white transition-colors"
             >
               Products
+            </a>
+            <a
+              href="/games"
+              className="text-sm text-muted hover:text-white transition-colors"
+            >
+              Games
             </a>
             <a
               href="#log"
