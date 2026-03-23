@@ -405,15 +405,9 @@ export default function Home() {
               BilbroSwagginz.com is a product studio.
             </p>
             <p className="mt-4 text-lg text-muted leading-relaxed">
-              Everything here is built around a single loop: think clearly,
-              build fast, ship publicly, automate what you can. Some of these
-              products are flagship bets. Some are tools and systems that
-              support the workflow. Some are experiments that might become
-              something bigger.
-            </p>
-            <p className="mt-4 text-lg text-muted leading-relaxed">
-              All of it is AI-first, builder-focused, and documented as it
-              happens.
+              I build AI-powered tools and ship them publicly. Some are
+              flagship products. Some are supporting tools. All of it is
+              documented as it happens, from first commit to launch.
             </p>
           </div>
         </RevealSection>
@@ -431,8 +425,7 @@ export default function Home() {
             </p>
             <p className="mt-4 text-lg text-muted leading-relaxed">
               Each product works on its own. Together they cover the full loop
-              from messy idea to shipped software to published content. This is
-              not an all-in-one platform. It is a practical stack where each
+              from messy idea to shipped software to published content. Each
               piece does one thing well and feeds into the next.
             </p>
 
@@ -891,13 +884,8 @@ export default function Home() {
               A lot of this gets built in public.
             </p>
             <p className="mt-4 text-lg text-muted leading-relaxed">
-              I use live streams and public build sessions to test ideas, fix
-              broken stuff, sharpen products, and show the actual process behind
-              shipping software.
-            </p>
-            <p className="mt-4 text-muted">
-              AI tools, coding agents, indie products, and messy iteration
-              included.
+              I stream build sessions, fix things live, and show the real
+              process. AI tools, coding agents, and messy iteration included.
             </p>
             <a
               href="https://www.youtube.com/channel/UCU0uyjCjL9gcwKhGc_9kW8A"

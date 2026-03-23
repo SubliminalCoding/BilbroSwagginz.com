@@ -30,7 +30,7 @@ export const products: Product[] = [
     category: "Builder Workflow / AI Product",
     tier: "featured",
     cta: "View ActuallyShip",
-    trialUrl: "https://actuallyship.com/try",
+    trialUrl: "https://www.actuallyship.app",
     trialCta: "Try one free clarity session",
     features: [
       {
@@ -65,10 +65,10 @@ export const products: Product[] = [
   {
     slug: "mecoach",
     name: "MeCoach",
-    tagline: "AI coaching for clearer thinking and stronger forward motion.",
+    tagline: "AI coaching that helps you think clearly and move forward.",
     href: "https://www.MeCoach.app",
     description:
-      "MeCoach is designed to help people reflect, reframe, and move forward with more clarity, consistency, and intention.",
+      "Structured coaching sessions that help you reflect, reframe, and figure out what to do next.",
     longDescription:
       "MeCoach is a structured reflection tool modeled on how good executive coaches work. Instead of open-ended chat, it walks through four stages: prompt, reflect, reframe, commit. Each session exposes patterns in how you think, pushes back on your assumptions, and ends with a specific commitment. Built for people who are good at getting things done but rarely ask whether they're working on the right things.",
     status: "In Progress",
@@ -113,7 +113,7 @@ export const products: Product[] = [
     description:
       "AgentReplay captures AI coding sessions and turns them into replayable, explorable artifacts with chapters, key moments, transcripts, and session data.",
     longDescription:
-      "AgentReplay is a live and replay layer for AI coding sessions. It captures agent activity in real time, provides a streaming dashboard with OBS overlays and voice narration, and exports every session as a structured replay artifact. Each replay includes chapters, key moments, a full transcript, extracted lessons, and session analytics. Built for streamers, educators, and builders who want to make AI coding visible, teachable, and reviewable.",
+      "AgentReplay sits between your coding agent and your audience. It captures what happens during a session, provides a live streaming dashboard with OBS overlays and voice narration, and exports everything as a structured replay. Each export has chapters, key moments, a transcript, lessons, and session analytics. If you stream AI coding, teach with it, or just want to review how a build went, this is how you do it.",
     status: "In Progress",
     category: "Creator Tools / AI Coding / Replay",
     tier: "tool",
@@ -153,7 +153,7 @@ export const products: Product[] = [
     name: "SocialForge",
     tagline: "A draft-first social content workflow for builders.",
     description:
-      "Turns ideas, updates, and build logs into structured content drafts so social publishing becomes part of the workflow instead of a separate chore.",
+      "Turns build logs, ideas, and progress updates into social drafts so you can post without context-switching out of your work.",
     longDescription:
       "Most builders know they should post about their work, but switching from code to content breaks flow. SocialForge works from the artifacts you already produce. Feed it a commit message, a build log entry, a quick voice note, or a screenshot, and it produces platform-specific drafts you can review and post in under a minute. The point is to make posting a byproduct of building, not a line item on your to-do list.",
     status: "In Progress",
@@ -236,7 +236,7 @@ export const products: Product[] = [
     name: "VoiceForge",
     tagline: "Fast capture for spoken ideas, notes, and workflow input.",
     description:
-      "Captures spoken thoughts and turns them into usable text, context, and product inputs for the rest of the stack.",
+      "Speak an idea, get clean text back. Pipe it into ActuallyShip, SocialForge, or wherever you need it.",
     longDescription:
       "Sometimes the fastest way to capture an idea is to say it out loud. VoiceForge records voice input and transcribes it into clean text you can feed into other tools. Built as the input layer for the rest of the product studio, so you can speak a product idea and pipe it into ActuallyShip, dictate a build log entry for SocialForge, or capture meeting notes on the fly.",
     status: "In Progress",

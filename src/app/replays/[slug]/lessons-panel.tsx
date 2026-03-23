@@ -1,18 +1,12 @@
 "use client";
 
-import { useState } from "react";
-import { ChevronDown, BookOpen } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronDown, ChevronUp, BookOpen } from "lucide-react";
 import type { LessonsFile } from "@/data/replays";
 
 /**
- * Lazy-loading panel for lessons.json content.
- *
- * Chapters are shown from the manifest (server-rendered).
- * This component adds an expand button that fetches lessons.json
- * to show full lesson cards, takeaways, highlights, and analytics.
- *
- * When lessons.json exists at the path, clicking "Load lessons" will
- * fetch and render the full course content.
+ * Lessons panel that auto-loads the session summary and lets users
+ * expand into full lesson cards per chapter.
  */
 export function ReplayLessonsPanel({
   slug,
@@ -26,76 +20,101 @@ export function ReplayLessonsPanel({
   const [lessons, setLessons] = useState<LessonsFile | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [expanded, setExpanded] = useState(false);
 
-  async function loadLessons() {
-    if (lessons || loading) return;
+  // Auto-load lessons on mount
+  useEffect(() => {
+    let cancelled = false;
     setLoading(true);
-    setError(null);
-    try {
-      const res = await fetch(lessonsPath);
-      if (!res.ok) {
-        setError("Lessons not yet available for this session.");
-        return;
-      }
-      const data: LessonsFile = await res.json();
-      setLessons(data);
-    } catch {
-      setError("Lessons not yet available for this session.");
-    } finally {
-      setLoading(false);
-    }
+    fetch(lessonsPath)
+      .then((res) => {
+        if (!res.ok) throw new Error("not found");
+        return res.json();
+      })
+      .then((data: LessonsFile) => {
+        if (!cancelled) setLessons(data);
+      })
+      .catch(() => {
+        if (!cancelled) setError("Lessons not yet available.");
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => { cancelled = true; };
+  }, [lessonsPath]);
+
+  if (loading) {
+    return (
+      <div className="mt-8 text-xs text-muted/50 animate-pulse">
+        Loading session insights...
+      </div>
+    );
   }
 
+  if (error || !lessons) return null;
+
+  const summary = lessons.course.summary;
+
   return (
-    <div className="mt-8">
-      {!lessons && !error && (
-        <button
-          onClick={loadLessons}
-          disabled={loading}
-          className="inline-flex items-center gap-2 rounded-lg border border-dark-border px-4 py-2.5 text-sm text-muted hover:text-white hover:border-lime/20 transition-colors disabled:opacity-50"
-        >
-          <BookOpen className="h-4 w-4" />
-          {loading ? "Loading lessons..." : `Load full lessons (${chapterCount} chapters)`}
-          {!loading && <ChevronDown className="h-3 w-3" />}
-        </button>
-      )}
-
-      {error && (
-        <p className="text-xs text-muted/60 mt-2">{error}</p>
-      )}
-
-      {lessons && (
-        <div className="mt-6 space-y-8">
-          {/* Summary */}
-          {lessons.course.summary && (
-            <div className="rounded-lg border border-dark-border bg-dark p-5">
-              <h3 className="text-sm font-semibold text-lime">Session Summary</h3>
-              <p className="mt-2 text-sm text-muted leading-relaxed">
-                {lessons.course.summary.beginnerSummary}
-              </p>
-              {lessons.course.summary.biggestLesson && (
-                <p className="mt-3 text-sm">
-                  <span className="text-lime font-medium">Biggest lesson:</span>{" "}
-                  <span className="text-muted">{lessons.course.summary.biggestLesson}</span>
-                </p>
-              )}
-              {lessons.course.summary.mindsetLesson && (
-                <p className="mt-1 text-sm">
-                  <span className="text-lime font-medium">Mindset:</span>{" "}
-                  <span className="text-muted">{lessons.course.summary.mindsetLesson}</span>
-                </p>
-              )}
+    <div className="mt-10">
+      {/* Summary — always visible */}
+      {summary && (
+        <div className="rounded-xl border border-lime/10 bg-dark p-6">
+          <h3 className="text-sm font-semibold text-lime">What this session covered</h3>
+          <p className="mt-3 text-sm text-muted leading-relaxed">
+            {summary.beginnerSummary}
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {summary.biggestLesson && (
+              <div>
+                <span className="text-[11px] uppercase tracking-wider text-muted/50">Biggest lesson</span>
+                <p className="mt-0.5 text-sm text-muted">{summary.biggestLesson}</p>
+              </div>
+            )}
+            {summary.mindsetLesson && (
+              <div>
+                <span className="text-[11px] uppercase tracking-wider text-muted/50">Mindset</span>
+                <p className="mt-0.5 text-sm text-muted">{summary.mindsetLesson}</p>
+              </div>
+            )}
+          </div>
+          {summary.skillsPracticed && summary.skillsPracticed.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {summary.skillsPracticed.map((skill, i) => (
+                <span
+                  key={i}
+                  className="rounded-full border border-dark-border px-2.5 py-0.5 text-[11px] text-muted"
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
           )}
+        </div>
+      )}
 
-          {/* Full chapters with lesson cards */}
+      {/* Expand into full lessons */}
+      <div className="mt-6">
+        <button
+          onClick={() => setExpanded(!expanded)}
+          className="inline-flex items-center gap-2 text-sm text-muted hover:text-white transition-colors"
+        >
+          <BookOpen className="h-4 w-4" />
+          {expanded ? "Hide detailed lessons" : `Show detailed lessons (${lessons.course.lessons.length} across ${chapterCount} chapters)`}
+          {expanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
+        </button>
+      </div>
+
+      {expanded && (
+        <div className="mt-6 space-y-8">
           {lessons.course.chapters.map((chapter) => (
             <div key={chapter.id}>
               <div className="flex items-center gap-2 mb-3">
                 <span className="text-base">{chapter.icon}</span>
-                <h3 className="font-semibold">{chapter.title}</h3>
+                <h3 className="text-sm font-semibold">{chapter.title}</h3>
+                <span className="text-[10px] text-muted/40">{chapter.lessons.length} lessons</span>
               </div>
-              <div className="space-y-3">
+              <div className="space-y-2">
                 {chapter.lessons.map((lesson) => (
                   <div
                     key={lesson.id}
@@ -106,42 +125,25 @@ export function ReplayLessonsPanel({
                         {lesson.conceptLabel}
                       </span>
                       {lesson.files.length > 0 && (
-                        <span className="font-mono">{lesson.files[0]}</span>
+                        <span className="font-mono text-[11px] text-muted/50 truncate max-w-[200px]">
+                          {lesson.files[0].split(/[\\/]/).pop()}
+                        </span>
                       )}
                     </div>
                     <h4 className="mt-2 text-sm font-medium">{lesson.title}</h4>
                     <p className="mt-1 text-xs text-muted leading-relaxed">
                       {lesson.whatHappened}
                     </p>
-                    <p className="mt-2 text-xs text-lime/80">
-                      {lesson.beginnerTakeaway}
-                    </p>
+                    {lesson.beginnerTakeaway && (
+                      <p className="mt-2 text-xs text-lime/70 leading-relaxed">
+                        {lesson.beginnerTakeaway}
+                      </p>
+                    )}
                   </div>
                 ))}
               </div>
             </div>
           ))}
-
-          {/* Highlights from lessons.json */}
-          {lessons.highlights.length > 0 && (
-            <div>
-              <h3 className="text-sm font-semibold text-lime mb-3">Highlights</h3>
-              <div className="flex flex-wrap gap-2">
-                {lessons.highlights
-                  .sort((a, b) => b.score - a.score)
-                  .slice(0, 8)
-                  .map((h, i) => (
-                    <span
-                      key={i}
-                      className="inline-flex items-center gap-1.5 rounded-full border border-dark-border px-3 py-1 text-xs text-muted"
-                    >
-                      <span>{h.icon}</span>
-                      {h.label}
-                    </span>
-                  ))}
-              </div>
-            </div>
-          )}
         </div>
       )}
     </div>

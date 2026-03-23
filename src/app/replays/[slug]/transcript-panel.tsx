@@ -2,7 +2,7 @@
 
 import { useState, useMemo } from "react";
 import { ChevronDown, MessageSquare, Search, X, Code } from "lucide-react";
-import type { TranscriptFile, TranscriptEntry, EventsFile } from "@/data/replays";
+import type { TranscriptFile, EventsFile } from "@/data/replays";
 import { CodeDiff } from "./code-diff";
 
 /**

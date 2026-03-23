@@ -5,13 +5,8 @@ import {
   Calendar,
   Clock,
   Play,
-  Tag,
-  BarChart3,
-  Activity,
-  FileCode,
-  GitCommitHorizontal,
 } from "lucide-react";
-import { replays, formatReplayDate, formatDurationMs } from "@/data/replays";
+import { replays, formatReplayDate } from "@/data/replays";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -26,6 +21,14 @@ export const metadata: Metadata = {
 };
 
 export default function ReplaysPage() {
+  // Group replays by project for visual identity
+  const byProject = new Map<string, typeof replays>();
+  for (const r of replays) {
+    const list = byProject.get(r.projectName) || [];
+    list.push(r);
+    byProject.set(r.projectName, list);
+  }
+
   return (
     <main className="min-h-screen">
       {/* Top bar */}
@@ -59,7 +62,7 @@ export default function ReplaysPage() {
       </nav>
 
       {/* Hero */}
-      <section className="px-6 pt-32 pb-16">
+      <section className="px-6 pt-32 pb-12">
         <div className="mx-auto max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-wider text-lime">
             AgentReplay
@@ -68,93 +71,76 @@ export default function ReplaysPage() {
             Turn live AI coding sessions into interactive replays.
           </h1>
           <p className="mt-4 text-lg text-muted leading-relaxed">
-            Every session is broken down into chapters, key moments, a full
-            transcript, and extracted lessons. Browse the archive, pick a
-            session, and see exactly how it went: the decisions, the debugging,
-            and the code that shipped.
+            Each session has chapters, key moments, a full transcript, and
+            extracted lessons. Pick one and see how it actually went.
+          </p>
+          <p className="mt-4 text-sm text-muted/60">
+            {replays.length} sessions across {byProject.size} projects
           </p>
         </div>
       </section>
 
       {/* Session list */}
       <section className="px-6 pb-24">
-        <div className="mx-auto max-w-5xl">
-          <div className="grid gap-6">
-            {replays.map((replay) => (
-              <Link
-                key={replay.slug}
-                href={`/replays/${replay.slug}`}
-                className="group block rounded-xl border border-dark-border bg-dark-card p-6 transition-all hover:border-lime/20 hover:shadow-lg hover:shadow-lime/5"
-              >
-                <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-                  <div className="flex-1 min-w-0">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <h2 className="text-lg font-bold group-hover:text-lime transition-colors">
-                        {replay.title}
-                      </h2>
-                      {replay.status !== "complete" && (
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-gold/10 px-2.5 py-0.5 text-xs font-medium text-gold border border-gold/20">
-                          {replay.status}
-                        </span>
-                      )}
-                    </div>
-                    <p className="mt-2 text-sm text-muted leading-relaxed">
-                      {replay.description}
-                    </p>
+        <div className="mx-auto max-w-4xl">
+          <div className="grid gap-4">
+            {replays.map((replay) => {
+              const topMoment = replay.keyMoments.length > 0
+                ? [...replay.keyMoments].sort((a, b) => b.score - a.score)[0]
+                : null;
 
-                    {/* Meta row */}
-                    <div className="mt-4 flex flex-wrap items-center gap-4 text-xs text-muted">
-                      <span className="inline-flex items-center gap-1.5">
+              return (
+                <Link
+                  key={replay.slug}
+                  href={`/replays/${replay.slug}`}
+                  className="group block rounded-xl border border-dark-border bg-dark-card overflow-hidden transition-all hover:border-lime/20 hover:shadow-lg hover:shadow-lime/5"
+                >
+                  <div className="p-5">
+                    {/* Top line: project + date */}
+                    <div className="flex items-center justify-between gap-4">
+                      <span className="text-xs font-medium text-lime">
+                        {replay.projectName}
+                      </span>
+                      <span className="flex items-center gap-1.5 text-[11px] text-muted/60 shrink-0">
                         <Calendar className="h-3 w-3" />
                         {formatReplayDate(replay.date)}
                       </span>
-                      <span className="inline-flex items-center gap-1.5">
+                    </div>
+
+                    {/* Title */}
+                    <h2 className="mt-2 text-base font-bold leading-snug group-hover:text-lime transition-colors">
+                      {replay.title}
+                    </h2>
+
+                    {/* One-line summary */}
+                    <p className="mt-1.5 text-sm text-muted leading-relaxed line-clamp-2">
+                      {replay.description}
+                    </p>
+
+                    {/* Bottom row: stats + top highlight */}
+                    <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-[11px] text-muted/60">
+                      <span className="inline-flex items-center gap-1">
                         <Clock className="h-3 w-3" />
                         {replay.duration}
                       </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <Tag className="h-3 w-3" />
-                        {replay.projectName}
-                      </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <BarChart3 className="h-3 w-3" />
-                        {replay.chapters.length} chapters
-                      </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <Activity className="h-3 w-3" />
-                        {replay.stats.eventCount} events
-                      </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <FileCode className="h-3 w-3" />
-                        {replay.stats.filesEdited} files
-                      </span>
-                      <span className="inline-flex items-center gap-1.5">
-                        <GitCommitHorizontal className="h-3 w-3" />
-                        {replay.stats.commitCount} commits
-                      </span>
-                    </div>
-
-                    {/* Tags + concepts */}
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {replay.tags.map((tag) => (
-                        <span
-                          key={tag}
-                          className="rounded-full border border-dark-border px-2.5 py-0.5 text-[11px] text-muted"
-                        >
-                          {tag}
+                      <span>{replay.chapters.length} chapters</span>
+                      {replay.stats.filesEdited > 0 && (
+                        <span>{replay.stats.filesEdited} files</span>
+                      )}
+                      {replay.stats.linesAdded > 0 && (
+                        <span className="text-lime/50">+{replay.stats.linesAdded.toLocaleString()}</span>
+                      )}
+                      {topMoment && (
+                        <span className="inline-flex items-center gap-1 text-muted/80">
+                          <span>{topMoment.icon}</span>
+                          <span className="max-w-[180px] truncate">{topMoment.label}</span>
                         </span>
-                      ))}
+                      )}
                     </div>
                   </div>
-                  <div className="flex items-center gap-2 shrink-0">
-                    <span className="text-sm font-medium text-lime group-hover:underline">
-                      View session
-                    </span>
-                    <ArrowRight className="h-4 w-4 text-lime" />
-                  </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
