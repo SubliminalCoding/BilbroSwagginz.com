@@ -23,6 +23,8 @@ export function ShareMomentButton({
     navigator.clipboard.writeText(url).then(() => {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
+    }).catch(() => {
+      // Clipboard API unavailable (non-HTTPS)
     });
   }
 

@@ -30,7 +30,6 @@ import type { ManifestKeyMoment } from "@/data/replays";
 import type { Metadata } from "next";
 import { ReplayLessonsPanel } from "./lessons-panel";
 import { ReplayTranscriptPanel } from "./transcript-panel";
-import { ReplayPlayerPlaceholder } from "./player-placeholder";
 import { ReplayPlayer } from "./replay-player";
 import { ShareMomentButton } from "./share-moment";
 

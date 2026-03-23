@@ -81,10 +81,12 @@ export function ReplayTranscriptPanel({
         if (event.kind === "agent_tool_use" && event.toolName === "Edit") {
           const input = event.input as Record<string, unknown> | undefined;
           if (input?.old_string && input?.new_string) {
+            const fileName = String(input.file_path || "").split(/[\\/]/).pop() || "";
+            if (!fileName) continue; // skip edits without a file path
             // Find the matching transcript entry (tool entries with "Edit" in text)
             for (let j = transcriptIdx; j < (transcript?.entries.length ?? 0); j++) {
               const te = transcript!.entries[j];
-              if (te.toolName === "Edit" && te.text.includes(String(input.file_path || "").split(/[\\/]/).pop() || "")) {
+              if (te.toolName === "Edit" && te.text.includes(fileName)) {
                 diffs.set(j, {
                   filePath: String(input.file_path || ""),
                   oldString: String(input.old_string),
@@ -238,8 +240,9 @@ function renderWithHighlight(text: string, query: string): React.ReactNode {
   const re = new RegExp(`(${escaped})`, "gi");
   const parts = text.split(re);
   if (parts.length === 1) return text;
+  // split(/(capture)/) puts matches at odd indices
   return parts.map((part, i) =>
-    re.test(part) ? (
+    i % 2 === 1 ? (
       <mark key={i} className="bg-lime/20 text-lime rounded-sm px-0.5">
         {part}
       </mark>
