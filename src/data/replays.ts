@@ -255,21 +255,23 @@ export function formatReplayDate(date: string): string {
 
 // ---------------------------------------------------------------------------
 // Replay manifests.
-// Real exports from AMC go first (loaded from public/replays/<slug>/replay.json).
-// Mock manifests follow for sessions that don't have exported artifacts yet.
+// Real exports from AgentReplay, loaded from public/replays/<slug>/replay.json.
+// Each has all 4 artifact files on disk (events, transcript, lessons).
 // ---------------------------------------------------------------------------
 
-// ── Real AMC export ──
-// Imported directly from the JSON file placed by the AMC export pipeline.
-// The corresponding events.json, transcript.json, and lessons.json live
-// alongside it in public/replays/<slug>/ and are lazy-loaded at runtime.
-import realReplay_a9648e from "../../public/replays/we-have-to-download-this-rep-a9648e/replay.json";
+import replay_bilbro_rebuild from "../../public/replays/we-need-to-update-bilbroswagginzcom-to-better-reflect-the-a-1fcf29/replay.json";
+import replay_udderly_scale from "../../public/replays/implement-the-following-plan-udderly-abduction-scale-u-81b587/replay.json";
+import replay_udderly_jeffrey from "../../public/replays/lets-do-some-jeffrey-prompts-to-see-how-we-can-make-this-be-533036/replay.json";
+import replay_amc_session from "../../public/replays/we-have-to-download-this-rep-a9648e/replay.json";
 
 export const replays: ReplayManifest[] = [
-  // Real AMC exports (have all 4 artifact files in public/)
-  realReplay_a9648e as ReplayManifest,
+  replay_bilbro_rebuild as ReplayManifest,
+  replay_udderly_jeffrey as ReplayManifest,
+  replay_udderly_scale as ReplayManifest,
+  replay_amc_session as ReplayManifest,
 
-  // Mock manifests (no artifact files on disk — lazy panels will show "not available")
+  // Mock manifests below — sessions that don't have exported artifacts yet.
+  // These show "not available" in lazy panels. Replace with real exports as they're generated.
   {
     version: 1,
     slug: "bilbroswagginz-site-rebuild",

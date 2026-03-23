@@ -1,0 +1,953 @@
+{
+  "version": 1,
+  "slug": "lets-do-some-jeffrey-prompts-to-see-how-we-can-make-this-be-533036",
+  "sessionId": "42ecbcbf-1307-46e6-891e-d7323e533036",
+  "exportedAt": "2026-03-23T17:33:56.796Z",
+  "title": "Let's do some Jeffrey prompts to see how we can make this better",
+  "description": "This coding run covered 6 different coding concepts. The agent read code before writing. That's the professional workflow. Understanding before acting leads to better results.",
+  "projectName": "Udderly Abduction",
+  "projectSlug": "udderly-abduction",
+  "date": "2026-03-22",
+  "duration": "14h 24m",
+  "durationMs": 51893157,
+  "tags": [
+    "terminal",
+    "editing-code",
+    "planning",
+    "reading-code",
+    "routing",
+    "dependencies"
+  ],
+  "status": "complete",
+  "source": {
+    "tool": "claude-code",
+    "model": "claude-opus-4-6",
+    "amcVersion": "0.1.0"
+  },
+  "stats": {
+    "eventCount": 2064,
+    "commitCount": 0,
+    "filesEdited": 0,
+    "linesAdded": 0,
+    "linesRemoved": 0,
+    "toolCalls": 1515,
+    "estimatedCostUSD": 3.448875000000005
+  },
+  "conceptsCovered": [
+    "terminal",
+    "editing-code",
+    "planning",
+    "reading-code",
+    "routing",
+    "dependencies"
+  ],
+  "chapters": [
+    {
+      "id": "ch-1",
+      "title": "Understanding the Task",
+      "icon": "🎯",
+      "description": "The agent receives instructions and plans its approach.",
+      "lessonCount": 1,
+      "startIndex": 0
+    },
+    {
+      "id": "ch-2",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 5
+    },
+    {
+      "id": "ch-3",
+      "title": "Inspecting the Code",
+      "icon": "🔍",
+      "description": "Reading existing code to understand how things work.",
+      "lessonCount": 1,
+      "startIndex": 7
+    },
+    {
+      "id": "ch-4",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 13,
+      "startIndex": 11
+    },
+    {
+      "id": "ch-5",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 97
+    },
+    {
+      "id": "ch-6",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 110
+    },
+    {
+      "id": "ch-7",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 6,
+      "startIndex": 149
+    },
+    {
+      "id": "ch-8",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 166
+    },
+    {
+      "id": "ch-9",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 8,
+      "startIndex": 171
+    },
+    {
+      "id": "ch-10",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 214
+    },
+    {
+      "id": "ch-11",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 3,
+      "startIndex": 216
+    },
+    {
+      "id": "ch-12",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 4,
+      "startIndex": 243
+    },
+    {
+      "id": "ch-13",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 267
+    },
+    {
+      "id": "ch-14",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 283
+    },
+    {
+      "id": "ch-15",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 305
+    },
+    {
+      "id": "ch-16",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 13,
+      "startIndex": 310
+    },
+    {
+      "id": "ch-17",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 3,
+      "startIndex": 353
+    },
+    {
+      "id": "ch-18",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 373
+    },
+    {
+      "id": "ch-19",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 395
+    },
+    {
+      "id": "ch-20",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 5,
+      "startIndex": 417
+    },
+    {
+      "id": "ch-21",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 11,
+      "startIndex": 506
+    },
+    {
+      "id": "ch-22",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 11,
+      "startIndex": 555
+    },
+    {
+      "id": "ch-23",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 4,
+      "startIndex": 625
+    },
+    {
+      "id": "ch-24",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 4,
+      "startIndex": 642
+    },
+    {
+      "id": "ch-25",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 666
+    },
+    {
+      "id": "ch-26",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 12,
+      "startIndex": 690
+    },
+    {
+      "id": "ch-27",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 5,
+      "startIndex": 751
+    },
+    {
+      "id": "ch-28",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 7,
+      "startIndex": 804
+    },
+    {
+      "id": "ch-29",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 6,
+      "startIndex": 838
+    },
+    {
+      "id": "ch-30",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 3,
+      "startIndex": 884
+    },
+    {
+      "id": "ch-31",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 3,
+      "startIndex": 919
+    },
+    {
+      "id": "ch-32",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 5,
+      "startIndex": 931
+    },
+    {
+      "id": "ch-33",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 986
+    },
+    {
+      "id": "ch-34",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 1011
+    },
+    {
+      "id": "ch-35",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 1050
+    },
+    {
+      "id": "ch-36",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 4,
+      "startIndex": 1073
+    },
+    {
+      "id": "ch-37",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 1090
+    },
+    {
+      "id": "ch-38",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 1094
+    },
+    {
+      "id": "ch-39",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 3,
+      "startIndex": 1123
+    },
+    {
+      "id": "ch-40",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 9,
+      "startIndex": 1144
+    },
+    {
+      "id": "ch-41",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 9,
+      "startIndex": 1198
+    },
+    {
+      "id": "ch-42",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 3,
+      "startIndex": 1226
+    },
+    {
+      "id": "ch-43",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 12,
+      "startIndex": 1259
+    },
+    {
+      "id": "ch-44",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 9,
+      "startIndex": 1306
+    },
+    {
+      "id": "ch-45",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 1342
+    },
+    {
+      "id": "ch-46",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 1347
+    },
+    {
+      "id": "ch-47",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 1357
+    },
+    {
+      "id": "ch-48",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 1359
+    },
+    {
+      "id": "ch-49",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 3,
+      "startIndex": 1386
+    },
+    {
+      "id": "ch-50",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 5,
+      "startIndex": 1398
+    },
+    {
+      "id": "ch-51",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 7,
+      "startIndex": 1426
+    },
+    {
+      "id": "ch-52",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 1458
+    },
+    {
+      "id": "ch-53",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 6,
+      "startIndex": 1483
+    },
+    {
+      "id": "ch-54",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 4,
+      "startIndex": 1500
+    },
+    {
+      "id": "ch-55",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 1515
+    },
+    {
+      "id": "ch-56",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 5,
+      "startIndex": 1517
+    },
+    {
+      "id": "ch-57",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 1531
+    },
+    {
+      "id": "ch-58",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 3,
+      "startIndex": 1538
+    },
+    {
+      "id": "ch-59",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 6,
+      "startIndex": 1604
+    },
+    {
+      "id": "ch-60",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 1623
+    },
+    {
+      "id": "ch-61",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 1626
+    },
+    {
+      "id": "ch-62",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 1629
+    },
+    {
+      "id": "ch-63",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 1630
+    },
+    {
+      "id": "ch-64",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 1632
+    },
+    {
+      "id": "ch-65",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 1634
+    },
+    {
+      "id": "ch-66",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 1635
+    },
+    {
+      "id": "ch-67",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 1638
+    },
+    {
+      "id": "ch-68",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 3,
+      "startIndex": 1648
+    },
+    {
+      "id": "ch-69",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 1655
+    },
+    {
+      "id": "ch-70",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 4,
+      "startIndex": 1657
+    },
+    {
+      "id": "ch-71",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 4,
+      "startIndex": 1668
+    },
+    {
+      "id": "ch-72",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 1683
+    },
+    {
+      "id": "ch-73",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 1692
+    },
+    {
+      "id": "ch-74",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 8,
+      "startIndex": 1698
+    },
+    {
+      "id": "ch-75",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 3,
+      "startIndex": 1727
+    },
+    {
+      "id": "ch-76",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 4,
+      "startIndex": 1738
+    },
+    {
+      "id": "ch-77",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 1759
+    },
+    {
+      "id": "ch-78",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 7,
+      "startIndex": 1761
+    },
+    {
+      "id": "ch-79",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 1787
+    },
+    {
+      "id": "ch-80",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 1790
+    },
+    {
+      "id": "ch-81",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 1809
+    },
+    {
+      "id": "ch-82",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 1811
+    },
+    {
+      "id": "ch-83",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 1819
+    },
+    {
+      "id": "ch-84",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 5,
+      "startIndex": 1824
+    },
+    {
+      "id": "ch-85",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 1841
+    },
+    {
+      "id": "ch-86",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 1843
+    },
+    {
+      "id": "ch-87",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 10,
+      "startIndex": 1851
+    },
+    {
+      "id": "ch-88",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 1885
+    },
+    {
+      "id": "ch-89",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 4,
+      "startIndex": 1894
+    },
+    {
+      "id": "ch-90",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 1909
+    },
+    {
+      "id": "ch-91",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 5,
+      "startIndex": 1916
+    },
+    {
+      "id": "ch-92",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 11,
+      "startIndex": 1927
+    },
+    {
+      "id": "ch-93",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 1972
+    },
+    {
+      "id": "ch-94",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 3,
+      "startIndex": 1981
+    },
+    {
+      "id": "ch-95",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 1997
+    },
+    {
+      "id": "ch-96",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 2002
+    },
+    {
+      "id": "ch-97",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 2025
+    },
+    {
+      "id": "ch-98",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 2029
+    },
+    {
+      "id": "ch-99",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 2041
+    },
+    {
+      "id": "ch-100",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 2043
+    },
+    {
+      "id": "ch-101",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 2051
+    },
+    {
+      "id": "ch-102",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 2,
+      "startIndex": 2058
+    }
+  ],
+  "keyMoments": [
+    {
+      "label": "First Code Change",
+      "icon": "✏️",
+      "eventIndex": 97,
+      "timestamp": "2026-03-22T19:03:52.146Z",
+      "score": 70
+    },
+    {
+      "label": "Task Received",
+      "icon": "📋",
+      "eventIndex": 0,
+      "timestamp": "2026-03-22T18:54:32.146Z",
+      "score": 60
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 184,
+      "timestamp": "2026-03-22T19:10:25.639Z",
+      "score": 55
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 228,
+      "timestamp": "2026-03-22T19:17:00.270Z",
+      "score": 55
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 230,
+      "timestamp": "2026-03-22T19:18:35.294Z",
+      "score": 55
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 231,
+      "timestamp": "2026-03-22T19:19:23.766Z",
+      "score": 55
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 243,
+      "timestamp": "2026-03-22T19:21:22.219Z",
+      "score": 55
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 305,
+      "timestamp": "2026-03-22T19:27:51.667Z",
+      "score": 55
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 394,
+      "timestamp": "2026-03-22T20:20:29.364Z",
+      "score": 55
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 628,
+      "timestamp": "2026-03-22T21:23:38.119Z",
+      "score": 55
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 751,
+      "timestamp": "2026-03-22T21:40:22.962Z",
+      "score": 55
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 752,
+      "timestamp": "2026-03-22T21:41:42.757Z",
+      "score": 55
+    }
+  ],
+  "files": {
+    "events": "events.json",
+    "transcript": "transcript.json",
+    "lessons": "lessons.json"
+  }
+}
