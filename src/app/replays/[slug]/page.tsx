@@ -32,6 +32,7 @@ import { ReplayLessonsPanel } from "./lessons-panel";
 import { ReplayTranscriptPanel } from "./transcript-panel";
 import { ReplayPlayerPlaceholder } from "./player-placeholder";
 import { ReplayPlayer } from "./replay-player";
+import { ShareMomentButton } from "./share-moment";
 
 export function generateStaticParams() {
   return replays.map((r) => ({ slug: r.slug }));
@@ -251,6 +252,11 @@ export default async function ReplayPage({
                       <span className="text-[11px] text-muted/60">
                         {chapter.lessonCount} lesson{chapter.lessonCount !== 1 ? "s" : ""}
                       </span>
+                      <ShareMomentButton
+                        slug={replay.slug}
+                        eventIndex={chapter.startIndex}
+                        label={chapter.title}
+                      />
                     </div>
                     <p className="mt-1 text-sm text-muted leading-relaxed">
                       {chapter.description}
@@ -299,6 +305,11 @@ export default async function ReplayPage({
                         <span className="rounded-full border border-dark-border px-2 py-0.5 text-[10px] text-muted">
                           score {moment.score}
                         </span>
+                        <ShareMomentButton
+                          slug={replay.slug}
+                          eventIndex={moment.eventIndex}
+                          label={moment.label}
+                        />
                       </div>
                       <p className="mt-1 text-sm font-medium">
                         {moment.label}
@@ -317,6 +328,7 @@ export default async function ReplayPage({
           <ReplayTranscriptPanel
             slug={replay.slug}
             transcriptPath={replayTranscriptPath(replay.slug)}
+            eventsPath={replayEventsPath(replay.slug)}
           />
         </div>
       </section>
