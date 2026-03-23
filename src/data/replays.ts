@@ -263,15 +263,22 @@ import replay_bilbro_rebuild from "../../public/replays/we-need-to-update-bilbro
 import replay_udderly_scale from "../../public/replays/implement-the-following-plan-udderly-abduction-scale-u-81b587/replay.json";
 import replay_udderly_jeffrey from "../../public/replays/lets-do-some-jeffrey-prompts-to-see-how-we-can-make-this-be-533036/replay.json";
 import replay_amc_session from "../../public/replays/we-have-to-download-this-rep-a9648e/replay.json";
+import replay_actuallyship from "../../public/replays/implement-the-following-plan-actuallyship-rebrand-plan-49f283/replay.json";
+import replay_socialforge from "../../public/replays/you-are-an-expert-full-stack-developer-specializing-in-rapid-c09a5b/replay.json";
+import replay_mecoach_ide from "../../public/replays/implement-the-following-plan-menoach-ide-mvp-implement-8bcf52/replay.json";
 
 export const replays: ReplayManifest[] = [
+  // All real AgentReplay exports — every session has 4 artifact files on disk
   replay_bilbro_rebuild as ReplayManifest,
   replay_udderly_jeffrey as ReplayManifest,
   replay_udderly_scale as ReplayManifest,
+  replay_actuallyship as ReplayManifest,
+  replay_socialforge as ReplayManifest,
+  replay_mecoach_ide as ReplayManifest,
   replay_amc_session as ReplayManifest,
 
-  // Mock manifests below — sessions that don't have exported artifacts yet.
-  // These show "not available" in lazy panels. Replace with real exports as they're generated.
+  // Mock manifests below — kept for sessions not yet exported.
+  // These show "not available" in lazy panels.
   {
     version: 1,
     slug: "bilbroswagginz-site-rebuild",

@@ -1,0 +1,192 @@
+{
+  "version": 1,
+  "slug": "implement-the-following-plan-actuallyship-rebrand-plan-49f283",
+  "sessionId": "2708e469-e668-4ca5-9f01-6f3f0e49f283",
+  "exportedAt": "2026-03-23T17:39:50.815Z",
+  "title": "Implement the following plan:",
+  "description": "This coding run covered 10 different coding concepts. The agent read code before writing. That's the professional workflow. Understanding before acting leads to better results.",
+  "projectName": "ActuallyShip",
+  "projectSlug": "actuallyship",
+  "date": "2026-03-16",
+  "duration": "1h 16m",
+  "durationMs": 4573573,
+  "tags": [
+    "terminal",
+    "routing",
+    "editing-code",
+    "api",
+    "config",
+    "state",
+    "components",
+    "testing",
+    "planning",
+    "reading-code"
+  ],
+  "status": "complete",
+  "source": {
+    "tool": "claude-code",
+    "model": "claude-opus-4-6",
+    "amcVersion": "0.1.0"
+  },
+  "stats": {
+    "eventCount": 525,
+    "commitCount": 0,
+    "filesEdited": 0,
+    "linesAdded": 0,
+    "linesRemoved": 0,
+    "toolCalls": 267,
+    "estimatedCostUSD": 0.012764999999999993
+  },
+  "conceptsCovered": [
+    "terminal",
+    "routing",
+    "editing-code",
+    "api",
+    "config",
+    "state",
+    "components",
+    "testing",
+    "planning",
+    "reading-code"
+  ],
+  "chapters": [
+    {
+      "id": "ch-1",
+      "title": "Understanding the Task",
+      "icon": "🎯",
+      "description": "The agent receives instructions and plans its approach.",
+      "lessonCount": 1,
+      "startIndex": 0
+    },
+    {
+      "id": "ch-2",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 11,
+      "startIndex": 6
+    },
+    {
+      "id": "ch-3",
+      "title": "Inspecting the Code",
+      "icon": "🔍",
+      "description": "Reading existing code to understand how things work.",
+      "lessonCount": 1,
+      "startIndex": 19
+    },
+    {
+      "id": "ch-4",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 66,
+      "startIndex": 79
+    },
+    {
+      "id": "ch-5",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 7,
+      "startIndex": 306
+    },
+    {
+      "id": "ch-6",
+      "title": "Validating the Result",
+      "icon": "🧪",
+      "description": "Running tests and typechecks to verify everything works.",
+      "lessonCount": 1,
+      "startIndex": 355
+    },
+    {
+      "id": "ch-7",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 10,
+      "startIndex": 357
+    },
+    {
+      "id": "ch-8",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 402
+    },
+    {
+      "id": "ch-9",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 7,
+      "startIndex": 425
+    },
+    {
+      "id": "ch-10",
+      "title": "Validating the Result",
+      "icon": "🧪",
+      "description": "Running tests and typechecks to verify everything works.",
+      "lessonCount": 1,
+      "startIndex": 441
+    },
+    {
+      "id": "ch-11",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 6,
+      "startIndex": 442
+    },
+    {
+      "id": "ch-12",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 521
+    }
+  ],
+  "keyMoments": [
+    {
+      "label": "First Code Change",
+      "icon": "✏️",
+      "eventIndex": 79,
+      "timestamp": "2026-03-16T11:36:53.628Z",
+      "score": 70
+    },
+    {
+      "label": "Running Tests",
+      "icon": "🧪",
+      "eventIndex": 355,
+      "timestamp": "2026-03-16T12:14:44.700Z",
+      "score": 65
+    },
+    {
+      "label": "Running Tests",
+      "icon": "🧪",
+      "eventIndex": 384,
+      "timestamp": "2026-03-16T12:16:14.204Z",
+      "score": 65
+    },
+    {
+      "label": "Running Tests",
+      "icon": "🧪",
+      "eventIndex": 441,
+      "timestamp": "2026-03-16T12:39:58.145Z",
+      "score": 65
+    },
+    {
+      "label": "Task Received",
+      "icon": "📋",
+      "eventIndex": 0,
+      "timestamp": "2026-03-16T11:35:15.313Z",
+      "score": 60
+    }
+  ],
+  "files": {
+    "events": "events.json",
+    "transcript": "transcript.json",
+    "lessons": "lessons.json"
+  }
+}
