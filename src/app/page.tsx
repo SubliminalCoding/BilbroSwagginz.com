@@ -19,6 +19,8 @@ import {
   Gamepad2,
   Star,
   Wrench,
+  Clock,
+  Film,
 } from "lucide-react";
 
 function DiscordIcon({ className }: { className?: string }) {
@@ -29,6 +31,7 @@ function DiscordIcon({ className }: { className?: string }) {
   );
 }
 import { featuredProducts, toolProducts, products } from "@/data/products";
+import { replays, formatReplayDate } from "@/data/replays";
 import { CommandPalette, CmdKHint } from "@/components/command-palette";
 
 const stats = [
@@ -199,20 +202,6 @@ function MobileMenu({
           Products
         </a>
         <a
-          href="/games"
-          onClick={onClose}
-          className="text-muted hover:text-white transition-colors"
-        >
-          Games
-        </a>
-        <a
-          href="#about"
-          onClick={onClose}
-          className="text-muted hover:text-white transition-colors"
-        >
-          About
-        </a>
-        <a
           href="#log"
           onClick={onClose}
           className="text-muted hover:text-white transition-colors"
@@ -220,11 +209,27 @@ function MobileMenu({
           Build Log
         </a>
         <a
-          href="#live"
+          href="/replays"
           onClick={onClose}
           className="text-muted hover:text-white transition-colors"
         >
-          Live Builds
+          Replays
+        </a>
+        <a
+          href="https://www.youtube.com/channel/UCU0uyjCjL9gcwKhGc_9kW8A"
+          target="_blank"
+          rel="noopener noreferrer"
+          onClick={onClose}
+          className="text-muted hover:text-white transition-colors"
+        >
+          YouTube
+        </a>
+        <a
+          href="#about"
+          onClick={onClose}
+          className="text-muted hover:text-white transition-colors"
+        >
+          About
         </a>
         <a
           href="#products"
@@ -300,17 +305,22 @@ export default function Home() {
             >
               Products
             </a>
-            <a href="/games" className="hover:text-white transition-colors">
-              Games
-            </a>
-            <a href="#about" className="hover:text-white transition-colors">
-              About
-            </a>
             <a href="#log" className="hover:text-white transition-colors">
               Build Log
             </a>
-            <a href="#live" className="hover:text-white transition-colors">
-              Live Builds
+            <a href="/replays" className="hover:text-white transition-colors">
+              Replays
+            </a>
+            <a
+              href="https://www.youtube.com/channel/UCU0uyjCjL9gcwKhGc_9kW8A"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              YouTube
+            </a>
+            <a href="#about" className="hover:text-white transition-colors">
+              About
             </a>
             <CmdKHint />
             <a
@@ -409,6 +419,148 @@ export default function Home() {
         </RevealSection>
       </section>
 
+      {/* The Vibe Coding Stack */}
+      <section id="stack" className="px-6 py-24 bg-dark-card">
+        <RevealSection>
+          <div className="mx-auto max-w-5xl">
+            <h2 className="text-sm font-semibold uppercase tracking-wider text-lime">
+              The Vibe Coding Stack
+            </h2>
+            <p className="mt-4 text-2xl font-semibold">
+              A connected set of tools for thinking, building, capturing, replaying, and shipping.
+            </p>
+            <p className="mt-4 text-lg text-muted leading-relaxed">
+              Each product works on its own. Together they cover the full loop
+              from messy idea to shipped software to published content. This is
+              not an all-in-one platform. It is a practical stack where each
+              piece does one thing well and feeds into the next.
+            </p>
+
+            {/* Ecosystem map — 6 stages, 6 products */}
+            <div className="mt-14">
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {/* Capture */}
+                <div className="rounded-xl border border-dark-border bg-dark p-5">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted/60 mb-3">
+                    1. Capture
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-lime/10 text-lime text-sm font-bold shrink-0">V</span>
+                    <div>
+                      <p className="font-semibold text-sm">VoiceForge</p>
+                      <p className="text-xs text-muted">Speak ideas, get usable text. Feeds into everything else.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Think */}
+                <div className="rounded-xl border border-lime/20 bg-dark p-5 ring-1 ring-lime/5">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted/60 mb-3">
+                    2. Think
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-lime/10 text-lime text-sm font-bold shrink-0">A</span>
+                    <div>
+                      <p className="font-semibold text-sm">ActuallyShip</p>
+                      <p className="text-xs text-muted">Decide what to build. Scope it. Get a build-ready brief.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Build */}
+                <div className="rounded-xl border border-dark-border bg-dark p-5">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted/60 mb-3">
+                    3. Build
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-dark-card text-muted text-sm font-bold shrink-0">I</span>
+                    <div>
+                      <p className="font-semibold text-sm">ActuallyShip IDE</p>
+                      <p className="text-xs text-muted">Execution environment for turning plans and prompts into shipped code.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Replay */}
+                <div className="rounded-xl border border-dark-border bg-dark p-5">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted/60 mb-3">
+                    4. Replay
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-lime/10 text-lime text-sm font-bold shrink-0">R</span>
+                    <div>
+                      <p className="font-semibold text-sm">AgentReplay</p>
+                      <p className="text-xs text-muted">Review what happened. Chapters, key moments, transcripts, and lessons from every session.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Reflect */}
+                <div className="rounded-xl border border-lime/20 bg-dark p-5 ring-1 ring-lime/5">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted/60 mb-3">
+                    5. Reflect
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-lime/10 text-lime text-sm font-bold shrink-0">M</span>
+                    <div>
+                      <p className="font-semibold text-sm">MeCoach</p>
+                      <p className="text-xs text-muted">Step back. Clearer thinking, better decisions, stronger forward motion.</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Share */}
+                <div className="rounded-xl border border-dark-border bg-dark p-5">
+                  <p className="text-[11px] font-semibold uppercase tracking-wider text-muted/60 mb-3">
+                    6. Share
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-lime/10 text-lime text-sm font-bold shrink-0">S</span>
+                    <div>
+                      <p className="font-semibold text-sm">SocialForge</p>
+                      <p className="text-xs text-muted">Turn build progress into content drafts. Publishing as part of the workflow.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Flow line */}
+              <div className="mt-8 text-center">
+                <p className="text-xs text-muted/50 font-mono">
+                  capture &rarr; think &rarr; build &rarr; replay &rarr; reflect &rarr; share &rarr; repeat
+                </p>
+              </div>
+            </div>
+
+            {/* Early access note */}
+            <div className="mt-12 rounded-xl border border-dark-border bg-dark p-6">
+              <p className="text-sm font-semibold">Early access, not a finished bundle.</p>
+              <p className="mt-2 text-sm text-muted leading-relaxed">
+                Some of these tools are live. Some are still being built. The
+                stack is real and I use it daily, but it is early. If you want
+                to try the tools as they ship, join the list. When enough of the
+                stack is ready, there will be a bundled offer for people who want
+                the whole thing.
+              </p>
+              <div className="mt-4 flex flex-wrap gap-3">
+                <a
+                  href="#products"
+                  className="inline-flex items-center gap-2 rounded-lg bg-lime px-4 py-2 text-sm font-semibold text-dark hover:bg-lime-dark transition-colors"
+                >
+                  See individual products <ArrowRight className="h-3.5 w-3.5" />
+                </a>
+                <a
+                  href="#email"
+                  className="inline-flex items-center gap-2 rounded-lg border border-dark-border px-4 py-2 text-sm font-semibold text-white hover:border-muted transition-colors"
+                >
+                  Get notified when the bundle ships
+                </a>
+              </div>
+            </div>
+          </div>
+        </RevealSection>
+      </section>
+
       {/* Featured Products */}
       <section id="products" className="px-6 py-24 bg-dark-card">
         <RevealSection>
@@ -451,10 +603,24 @@ export default function Home() {
                     <p className="mt-4 text-xs text-muted">
                       {product.category}
                     </p>
-                    <span className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-lime group-hover:underline">
-                      {product.cta}{" "}
-                      <ExternalLink className="h-3 w-3" />
-                    </span>
+                    <div className="mt-6 flex flex-wrap items-center gap-4">
+                      <span className="inline-flex items-center gap-1 text-sm font-medium text-lime group-hover:underline">
+                        {product.cta}{" "}
+                        <ExternalLink className="h-3 w-3" />
+                      </span>
+                      {product.trialUrl && (
+                        <span
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            window.open(product.trialUrl, "_blank");
+                          }}
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-lime px-3 py-1.5 text-xs font-semibold text-dark hover:bg-lime-dark transition-colors cursor-pointer"
+                        >
+                          {product.trialCta || "Try free"}
+                        </span>
+                      )}
+                    </div>
                   </a>
                 );
               })}
@@ -610,8 +776,74 @@ export default function Home() {
         </RevealSection>
       </section>
 
+      {/* AgentReplay */}
+      <section id="replays" className="px-6 py-24 bg-dark-card">
+        <RevealSection>
+          <div className="mx-auto max-w-5xl">
+            <div className="flex items-center gap-3">
+              <Film className="h-5 w-5 text-lime" />
+              <h2 className="text-sm font-semibold uppercase tracking-wider text-lime">
+                AgentReplay
+              </h2>
+            </div>
+            <p className="mt-4 text-2xl font-semibold">
+              Turn live AI coding sessions into interactive replays.
+            </p>
+            <p className="mt-2 text-muted">
+              Chapters, key moments, full transcripts, and lessons extracted
+              from every build session. Watch how it actually gets made.
+            </p>
+            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {replays.slice(0, 3).map((replay) => (
+                <a
+                  key={replay.slug}
+                  href={`/replays/${replay.slug}`}
+                  className="product-card group rounded-xl border border-dark-border bg-dark p-5 block hover:border-lime/20"
+                >
+                  <h3 className="text-sm font-bold leading-snug group-hover:text-lime transition-colors">
+                    {replay.title}
+                  </h3>
+                  <div className="mt-3 flex items-center gap-3 text-xs text-muted">
+                    <span className="inline-flex items-center gap-1">
+                      <Calendar className="h-3 w-3" />
+                      {formatReplayDate(replay.date)}
+                    </span>
+                    <span className="inline-flex items-center gap-1">
+                      <Clock className="h-3 w-3" />
+                      {replay.duration}
+                    </span>
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    <span className="rounded-full border border-dark-border px-2 py-0.5 text-[10px] text-muted">
+                      {replay.projectName}
+                    </span>
+                    {replay.chapters.length > 0 && (
+                      <span className="rounded-full border border-dark-border px-2 py-0.5 text-[10px] text-muted">
+                        {replay.chapters.length} chapters
+                      </span>
+                    )}
+                  </div>
+                  <span className="mt-4 inline-flex items-center gap-1 text-xs font-medium text-lime group-hover:underline">
+                    View session <ArrowRight className="h-3 w-3" />
+                  </span>
+                </a>
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+              <a
+                href="/replays"
+                className="inline-flex items-center gap-2 text-sm font-medium text-lime hover:underline"
+              >
+                View all {replays.length} sessions{" "}
+                <ArrowRight className="h-3.5 w-3.5" />
+              </a>
+            </div>
+          </div>
+        </RevealSection>
+      </section>
+
       {/* Build Philosophy */}
-      <section className="px-6 py-24 bg-dark-card">
+      <section className="px-6 py-24">
         <RevealSection>
           <div className="mx-auto max-w-5xl">
             <h2 className="text-sm font-semibold uppercase tracking-wider text-lime">
@@ -700,7 +932,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA + Email Capture */}
-      <section className="px-6 py-24">
+      <section id="email" className="px-6 py-24">
         <RevealSection>
           <div className="mx-auto max-w-3xl text-center">
             <h2 className="text-3xl font-bold">Stay in the loop</h2>
@@ -779,16 +1011,22 @@ export default function Home() {
               Products
             </a>
             <a
-              href="/games"
-              className="text-sm text-muted hover:text-white transition-colors"
-            >
-              Games
-            </a>
-            <a
               href="#log"
               className="text-sm text-muted hover:text-white transition-colors"
             >
               Build Log
+            </a>
+            <a
+              href="/replays"
+              className="text-sm text-muted hover:text-white transition-colors"
+            >
+              Replays
+            </a>
+            <a
+              href="/games"
+              className="text-sm text-muted hover:text-white transition-colors"
+            >
+              Games
             </a>
           </div>
         </div>

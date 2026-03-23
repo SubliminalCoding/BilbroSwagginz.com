@@ -9,6 +9,8 @@ export interface Product {
   tier: "featured" | "tool";
   cta: string;
   href?: string;
+  trialUrl?: string;
+  trialCta?: string;
   features: { title: string; description: string }[];
   useCases: string[];
   stack: string[];
@@ -28,6 +30,8 @@ export const products: Product[] = [
     category: "Builder Workflow / AI Product",
     tier: "featured",
     cta: "View ActuallyShip",
+    trialUrl: "https://actuallyship.com/try",
+    trialCta: "Try one free clarity session",
     features: [
       {
         title: "Context ingestion",
@@ -103,43 +107,43 @@ export const products: Product[] = [
   },
   // --- Builder & Creator Tools ---
   {
-    slug: "agentmissioncontrol",
-    name: "AgentMissionControl",
-    tagline: "A live dashboard for streaming and understanding AI coding agents.",
+    slug: "agentreplay",
+    name: "AgentReplay",
+    tagline: "Turn live AI coding sessions into interactive replays.",
     description:
-      "Turns raw agent activity into something watchable, teachable, and stream-ready with real-time event feeds, narration, OBS overlays, and replay tools.",
+      "AgentReplay captures AI coding sessions and turns them into replayable, explorable artifacts with chapters, key moments, transcripts, and session data.",
     longDescription:
-      "AgentMissionControl sits between your coding agents and your audience. It captures agent events in real time, formats them into a visual feed, and provides OBS-ready overlays so viewers can follow along as AI builds software. Includes voice narration support, event replay, and a dashboard for managing multiple agent sessions. Built for streamers, educators, and anyone who wants to make AI coding visible.",
+      "AgentReplay is a live and replay layer for AI coding sessions. It captures agent activity in real time, provides a streaming dashboard with OBS overlays and voice narration, and exports every session as a structured replay artifact. Each replay includes chapters, key moments, a full transcript, extracted lessons, and session analytics. Built for streamers, educators, and builders who want to make AI coding visible, teachable, and reviewable.",
     status: "In Progress",
-    category: "Creator Tools / AI Coding / Streaming",
+    category: "Creator Tools / AI Coding / Replay",
     tier: "tool",
-    cta: "View AgentMissionControl",
+    cta: "View AgentReplay",
     features: [
       {
-        title: "Real-time event feed",
+        title: "Live dashboard",
         description:
-          "Captures agent file edits, tool calls, and decisions as they happen.",
+          "Real-time event feed that captures agent file edits, tool calls, and decisions as they happen.",
       },
       {
-        title: "OBS overlays",
+        title: "Stream overlays and narration",
         description:
-          "Browser-source overlays that drop into any streaming setup.",
+          "OBS-ready browser overlays and optional AI voice narration for live coding streams.",
       },
       {
-        title: "Voice narration",
+        title: "Replay artifacts",
         description:
-          "Optional AI narration that explains what agents are doing in plain English.",
+          "Every session exports as a structured replay with chapters, key moments, and session stats.",
       },
       {
-        title: "Session replay",
+        title: "Transcripts and lessons",
         description:
-          "Review and replay past agent sessions for teaching or debugging.",
+          "Full conversation transcripts and extracted lessons with takeaways for each chapter.",
       },
     ],
     useCases: [
       "Streamers showing AI coding sessions live",
       "Educators teaching how coding agents work",
-      "Builders who want a visual record of agent activity",
+      "Builders who want a reviewable record of every session",
       "Teams monitoring multiple agents in parallel",
     ],
     stack: ["Next.js", "TypeScript", "WebSocket", "ElevenLabs"],
@@ -228,17 +232,17 @@ export const products: Product[] = [
     stack: ["TypeScript", "Electron", "Claude API"],
   },
   {
-    slug: "voice-transcription",
-    name: "Voice Transcription App",
+    slug: "voiceforge",
+    name: "VoiceForge",
     tagline: "Fast capture for spoken ideas, notes, and workflow input.",
     description:
-      "A voice-first utility for turning spoken thoughts into usable text, context, and product inputs.",
+      "Captures spoken thoughts and turns them into usable text, context, and product inputs for the rest of the stack.",
     longDescription:
-      "Sometimes the fastest way to capture an idea is to say it out loud. This app records voice input and transcribes it into clean text you can feed into other tools. Built as a utility layer for the rest of the product studio, so you can speak a product idea and pipe it into ActuallyShip, dictate a build log entry, or capture meeting notes on the fly.",
+      "Sometimes the fastest way to capture an idea is to say it out loud. VoiceForge records voice input and transcribes it into clean text you can feed into other tools. Built as the input layer for the rest of the product studio, so you can speak a product idea and pipe it into ActuallyShip, dictate a build log entry for SocialForge, or capture meeting notes on the fly.",
     status: "In Progress",
-    category: "Utility / Productivity / Voice",
+    category: "Input / Capture / Voice",
     tier: "tool",
-    cta: "View Voice App",
+    cta: "View VoiceForge",
     features: [
       {
         title: "Fast transcription",

@@ -1,0 +1,270 @@
+{
+  "version": 1,
+  "slug": "we-have-to-download-this-rep-a9648e",
+  "sessionId": "193492c9-247a-41b6-a916-243c48a9648e",
+  "exportedAt": "2026-03-23T13:16:06.599Z",
+  "title": "we have to download this rep[",
+  "description": "This coding run covered 8 different coding concepts. The agent read code before writing. That's the professional workflow. Understanding before acting leads to better results.",
+  "projectName": "AgentMissionControl",
+  "projectSlug": "agentmissioncontrol",
+  "date": "2026-03-23",
+  "duration": "13s",
+  "durationMs": 13722,
+  "tags": [
+    "terminal",
+    "editing-code",
+    "git",
+    "typechecking",
+    "api",
+    "planning",
+    "reading-code",
+    "dependencies"
+  ],
+  "status": "complete",
+  "source": {
+    "tool": "claude-code",
+    "model": "claude-opus-4-6",
+    "amcVersion": "0.1.0"
+  },
+  "stats": {
+    "eventCount": 445,
+    "commitCount": 0,
+    "filesEdited": 0,
+    "linesAdded": 0,
+    "linesRemoved": 0,
+    "toolCalls": 247,
+    "estimatedCostUSD": 0.41863499999999987
+  },
+  "conceptsCovered": [
+    "terminal",
+    "editing-code",
+    "git",
+    "typechecking",
+    "api",
+    "planning",
+    "reading-code",
+    "dependencies"
+  ],
+  "chapters": [
+    {
+      "id": "ch-1",
+      "title": "Understanding the Task",
+      "icon": "🎯",
+      "description": "The agent receives instructions and plans its approach.",
+      "lessonCount": 1,
+      "startIndex": 0
+    },
+    {
+      "id": "ch-2",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 2
+    },
+    {
+      "id": "ch-3",
+      "title": "Saving the Checkpoint",
+      "icon": "✔️",
+      "description": "Committing changes to create a permanent save point.",
+      "lessonCount": 2,
+      "startIndex": 5
+    },
+    {
+      "id": "ch-4",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 3,
+      "startIndex": 13
+    },
+    {
+      "id": "ch-5",
+      "title": "Inspecting the Code",
+      "icon": "🔍",
+      "description": "Reading existing code to understand how things work.",
+      "lessonCount": 1,
+      "startIndex": 22
+    },
+    {
+      "id": "ch-6",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 26
+    },
+    {
+      "id": "ch-7",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 1,
+      "startIndex": 29
+    },
+    {
+      "id": "ch-8",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 2,
+      "startIndex": 43
+    },
+    {
+      "id": "ch-9",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 18,
+      "startIndex": 55
+    },
+    {
+      "id": "ch-10",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 11,
+      "startIndex": 139
+    },
+    {
+      "id": "ch-11",
+      "title": "Validating the Result",
+      "icon": "🧪",
+      "description": "Running tests and typechecks to verify everything works.",
+      "lessonCount": 3,
+      "startIndex": 171
+    },
+    {
+      "id": "ch-12",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 19,
+      "startIndex": 181
+    },
+    {
+      "id": "ch-13",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 9,
+      "startIndex": 292
+    },
+    {
+      "id": "ch-14",
+      "title": "Validating the Result",
+      "icon": "🧪",
+      "description": "Running tests and typechecks to verify everything works.",
+      "lessonCount": 2,
+      "startIndex": 326
+    },
+    {
+      "id": "ch-15",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 5,
+      "startIndex": 334
+    },
+    {
+      "id": "ch-16",
+      "title": "Validating the Result",
+      "icon": "🧪",
+      "description": "Running tests and typechecks to verify everything works.",
+      "lessonCount": 2,
+      "startIndex": 350
+    },
+    {
+      "id": "ch-17",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 357
+    },
+    {
+      "id": "ch-18",
+      "title": "Saving the Checkpoint",
+      "icon": "✔️",
+      "description": "Committing changes to create a permanent save point.",
+      "lessonCount": 9,
+      "startIndex": 366
+    },
+    {
+      "id": "ch-19",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 4,
+      "startIndex": 387
+    },
+    {
+      "id": "ch-20",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 1,
+      "startIndex": 401
+    },
+    {
+      "id": "ch-21",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 6,
+      "startIndex": 404
+    },
+    {
+      "id": "ch-22",
+      "title": "Making the Changes",
+      "icon": "⌨️",
+      "description": "Writing and editing code to build the feature.",
+      "lessonCount": 3,
+      "startIndex": 424
+    },
+    {
+      "id": "ch-23",
+      "title": "Validating the Result",
+      "icon": "🧪",
+      "description": "Running tests and typechecks to verify everything works.",
+      "lessonCount": 1,
+      "startIndex": 434
+    },
+    {
+      "id": "ch-24",
+      "title": "Running Commands",
+      "icon": "💻",
+      "description": "Using the terminal to run system commands.",
+      "lessonCount": 4,
+      "startIndex": 437
+    }
+  ],
+  "keyMoments": [
+    {
+      "label": "First Code Change",
+      "icon": "✏️",
+      "eventIndex": 43,
+      "timestamp": "2026-03-23T09:25:31.589Z",
+      "score": 70
+    },
+    {
+      "label": "Task Received",
+      "icon": "📋",
+      "eventIndex": 0,
+      "timestamp": "2026-03-23T09:12:45.259Z",
+      "score": 60
+    },
+    {
+      "label": "Breakthrough",
+      "icon": "💡",
+      "eventIndex": 101,
+      "timestamp": "2026-03-23T10:32:07.936Z",
+      "score": 55
+    }
+  ],
+  "files": {
+    "events": "events.json",
+    "transcript": "transcript.json",
+    "lessons": "lessons.json"
+  }
+}

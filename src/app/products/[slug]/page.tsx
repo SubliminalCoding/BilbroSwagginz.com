@@ -88,6 +88,16 @@ export default async function ProductPage({
             {product.name}
           </h1>
           <p className="mt-4 text-xl text-muted">{product.tagline}</p>
+          {product.trialUrl && (
+            <a
+              href={product.trialUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-lime px-5 py-3 text-sm font-semibold text-dark hover:bg-lime-dark transition-colors"
+            >
+              {product.trialCta || "Try free"}
+            </a>
+          )}
         </div>
       </section>
 

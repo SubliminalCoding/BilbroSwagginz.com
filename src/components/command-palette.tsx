@@ -15,6 +15,7 @@ import {
   Command,
   Gamepad2,
   Crosshair,
+  Film,
 } from "lucide-react";
 
 interface PaletteItem {
@@ -54,13 +55,14 @@ export function CommandPalette() {
       { id: "about", label: "About", section: "Navigate", icon: User, action: go("#about") },
       { id: "build-log", label: "Build Log", section: "Navigate", icon: FileText, action: go("#log") },
       { id: "live-builds", label: "Live Builds", section: "Navigate", icon: Radio, action: go("#live") },
+      { id: "replays", label: "AgentReplay", section: "Navigate", icon: Film, action: go("/replays") },
       { id: "games", label: "Games / Arcade", section: "Navigate", icon: Gamepad2, action: go("/games") },
       { id: "actuallyship", label: "ActuallyShip", section: "Featured", icon: ArrowRight, action: go("/products/actuallyship") },
       { id: "mecoach", label: "MeCoach", section: "Featured", icon: ArrowRight, action: go("/products/mecoach") },
-      { id: "agentmissioncontrol", label: "AgentMissionControl", section: "Tools", icon: ArrowRight, action: go("/products/agentmissioncontrol") },
+      { id: "agentreplay", label: "AgentReplay", section: "Tools", icon: ArrowRight, action: go("/products/agentreplay") },
       { id: "socialforge", label: "SocialForge", section: "Tools", icon: ArrowRight, action: go("/products/socialforge") },
       { id: "actuallyship-ide", label: "ActuallyShip IDE", section: "Tools", icon: ArrowRight, action: go("/products/actuallyship-ide") },
-      { id: "voice-transcription", label: "Voice Transcription App", section: "Tools", icon: ArrowRight, action: go("/products/voice-transcription") },
+      { id: "voiceforge", label: "VoiceForge", section: "Tools", icon: ArrowRight, action: go("/products/voiceforge") },
       { id: "udderly-abduction", label: "Udderly Abduction: Barrage", section: "Games", icon: Crosshair, action: go("/games/udderly-abduction") },
       { id: "game-dev-prompts", label: "Game Dev Prompts", section: "Games", icon: Gamepad2, action: go("/games/prompts") },
       { id: "youtube", label: "YouTube", section: "Social", icon: Youtube, action: () => { setOpen(false); window.open("https://www.youtube.com/channel/UCU0uyjCjL9gcwKhGc_9kW8A", "_blank"); } },
