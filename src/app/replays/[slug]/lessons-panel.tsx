@@ -62,7 +62,8 @@ export function ReplayLessonsPanel({
 
   if (loading) {
     return (
-      <div className="mt-8 text-xs text-muted/50 animate-pulse">
+      <div className="mt-8 flex items-center gap-2 text-xs text-muted">
+        <span className="h-3.5 w-3.5 animate-spin rounded-full border-2 border-lime border-t-transparent" />
         Loading session insights...
       </div>
     );

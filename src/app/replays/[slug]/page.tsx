@@ -198,7 +198,7 @@ export default async function ReplayPage({
                   </div>
                   <div className="min-w-0 flex-1 pt-0.5">
                     <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-[10px] font-mono text-muted/40">
+                      <span className="text-[10px] font-mono text-muted/70">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       <h3 className="text-sm font-semibold group-hover:text-lime transition-colors">

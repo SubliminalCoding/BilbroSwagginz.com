@@ -134,14 +134,18 @@ export function ReplayTranscriptPanel({
           disabled={loading}
           className="mt-4 inline-flex items-center gap-2 rounded-lg border border-dark-border px-4 py-2.5 text-sm text-muted hover:text-white hover:border-lime/20 transition-colors disabled:opacity-50"
         >
-          <MessageSquare className="h-4 w-4" />
+          {loading ? (
+            <span className="h-4 w-4 animate-spin rounded-full border-2 border-lime border-t-transparent" />
+          ) : (
+            <MessageSquare className="h-4 w-4" />
+          )}
           {loading ? "Loading transcript..." : "Load session transcript"}
           {!loading && <ChevronDown className="h-3 w-3" />}
         </button>
       )}
 
       {error && (
-        <p className="mt-4 text-xs text-muted/60">{error}</p>
+        <p className="mt-4 text-xs text-muted">{error}</p>
       )}
 
       {transcript && (
@@ -154,7 +158,8 @@ export function ReplayTranscriptPanel({
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search transcript..."
-              className="w-full rounded-lg border border-dark-border bg-dark px-9 py-2 text-sm text-white placeholder:text-muted/50 focus:border-lime/30 focus:outline-none transition-colors"
+              aria-label="Search transcript"
+              className="w-full rounded-lg border border-dark-border bg-dark px-9 py-2 text-sm text-white placeholder:text-muted/50 focus:border-lime/30 focus:outline-none focus-visible:ring-2 focus-visible:ring-lime/30 focus-visible:ring-offset-1 focus-visible:ring-offset-dark transition-colors"
             />
             {query && (
               <button
