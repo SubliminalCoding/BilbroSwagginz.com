@@ -52,10 +52,10 @@ export function ReplayPlayer({
       </div>
 
       {/* Chapter timeline bar */}
-      {chapters.length > 0 && (
+      {chapters.length > 0 && chapters.length <= 30 && (
         <div className="border-t border-dark-border px-4 py-3">
           <div className="flex gap-1 overflow-x-auto">
-            {chapters.map((ch, i) => (
+            {chapters.map((ch) => (
               <a
                 key={ch.id}
                 href={`#chapter-${ch.id}`}
@@ -67,6 +67,13 @@ export function ReplayPlayer({
               </a>
             ))}
           </div>
+        </div>
+      )}
+      {chapters.length > 30 && (
+        <div className="border-t border-dark-border px-4 py-3 text-center">
+          <p className="text-xs text-muted/50">
+            {chapters.length} chapters below
+          </p>
         </div>
       )}
     </div>

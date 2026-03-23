@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import {
   ArrowLeft,
-  ArrowRight,
   Calendar,
   Clock,
 } from "lucide-react";

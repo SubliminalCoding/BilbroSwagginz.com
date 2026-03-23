@@ -22,8 +22,12 @@ export function ReplayLessonsPanel({
   const [error, setError] = useState<string | null>(null);
   const [expanded, setExpanded] = useState(false);
 
-  // Auto-load lessons on mount
+  // Auto-load for small sessions (under 40 chapters).
+  // Larger sessions stay behind a manual button to avoid slow page loads.
+  const shouldAutoLoad = chapterCount < 40;
+
   useEffect(() => {
+    if (!shouldAutoLoad) return;
     let cancelled = false;
     setLoading(true);
     fetch(lessonsPath)
@@ -41,12 +45,41 @@ export function ReplayLessonsPanel({
         if (!cancelled) setLoading(false);
       });
     return () => { cancelled = true; };
-  }, [lessonsPath]);
+  }, [lessonsPath, shouldAutoLoad]);
+
+  function manualLoad() {
+    if (lessons || loading) return;
+    setLoading(true);
+    fetch(lessonsPath)
+      .then((res) => {
+        if (!res.ok) throw new Error("not found");
+        return res.json();
+      })
+      .then((data: LessonsFile) => setLessons(data))
+      .catch(() => setError("Lessons not yet available."))
+      .finally(() => setLoading(false));
+  }
 
   if (loading) {
     return (
       <div className="mt-8 text-xs text-muted/50 animate-pulse">
         Loading session insights...
+      </div>
+    );
+  }
+
+  // Large session that wasn't auto-loaded: show manual button
+  if (!shouldAutoLoad && !lessons && !error) {
+    return (
+      <div className="mt-8">
+        <button
+          onClick={manualLoad}
+          className="inline-flex items-center gap-2 rounded-lg border border-dark-border px-4 py-2.5 text-sm text-muted hover:text-white hover:border-lime/20 transition-colors"
+        >
+          <BookOpen className="h-4 w-4" />
+          Load session insights ({chapterCount} chapters)
+          <ChevronDown className="h-3 w-3" />
+        </button>
       </div>
     );
   }
